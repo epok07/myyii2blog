@@ -1,0 +1,34 @@
+# Mod_Autoindex
+<IfModule mod_autoindex.c>
+    # Disable Indexes
+    Options -Indexes
+</IfModule>
+
+# Mod_Rewrite
+<IfModule mod_rewrite.c>
+    # Enable symlinks
+    Options +FollowSymlinks
+    # Enable mod_rewrite
+    RewriteEngine On
+
+    # Backend redirect
+    RewriteCond %{REQUEST_URI} ^/backend
+    RewriteRule ^backend/(.*)$ backend/web/$1 [L]
+
+    # Frontend redirect
+    RewriteCond %{REQUEST_URI} !^public
+    RewriteRule ^(.*)$ frontend/web/$1 [L]
+
+    # Blocking access from libwww-perl eliminates many simpler attacks
+    RewriteCond %{HTTP_USER_AGENT} libwww-perl.*
+    RewriteRule .* – [F,L]
+</IfModule>
+
+# Deny accessing below extensions
+<Files ~ "(.json|.lock|.git)">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Deny accessing dot files
+RewriteRule (^\.|/\.) - [F]
