@@ -6,4 +6,5 @@ return [
             'class' => 'yii\caching\FileCache',
         ],
     ],
+    'name' => 'My-Yii Blog',
 ];
