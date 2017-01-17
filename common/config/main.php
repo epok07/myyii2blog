@@ -5,11 +5,12 @@ return [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+        // ... other components
+	     'authManager' => [
+	        'class' => 'yii\rbac\DbManager',
+	    ],
     ],
     'name' => 'My-Yii Blog',
+
     
-    // ... other components
-     'authManager' => [
-        'class' => 'yii\rbac\DbManager',
-    ],
 ];
