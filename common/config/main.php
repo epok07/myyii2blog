@@ -7,4 +7,9 @@ return [
         ],
     ],
     'name' => 'My-Yii Blog',
+    
+    // ... other components
+     'authManager' => [
+        'class' => 'yii\rbac\DbManager',
+    ],
 ];
