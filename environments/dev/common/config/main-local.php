@@ -4,7 +4,7 @@ return [
         'db' => [
             'class' => 'yii\db\Connection',
             'dsn' => 'mysql:host=localhost;dbname=yii2tutoblogdb',
-            'username' => 'yii2suser',
+            'username' => 'yii2user',
             'password' => 'yii2pass',
             'charset' => 'utf8',
         ],
